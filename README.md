@@ -23,3 +23,18 @@ ARENA is a platform for creating visual-web apps. It can do far more
 than what SPRNG even attempts, but it is also well-suited for simple
 apps like SPRNG. Getting 3D rendering, webcam input/output,e etc. is
 useful for many apps, simple or complex.
+
+
+## Usage
+
+```
+pip3 install arena-py
+git clone https://github.com/syreal17/sprng
+cd sprng
+python3 sprng.py
+```
+
+[TODO:] scene name should maybe be different, otherwise there will be 
+collisions
+Point a browser to 
+`https://arena.andrew.cmu.edu/?scene=sprng-repo-example
