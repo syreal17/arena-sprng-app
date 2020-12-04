@@ -36,5 +36,6 @@ python3 sprng.py
 
 [TODO:] scene name should maybe be different, otherwise there will be 
 collisions
+
 Point a browser to 
-`https://arena.andrew.cmu.edu/?scene=sprng-repo-example
+`https://arena.andrew.cmu.edu/?scene=sprng-changeme
