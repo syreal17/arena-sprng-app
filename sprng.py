@@ -9,24 +9,22 @@ def scene_callback(msg):
 
   jsonMsg = json.loads(msg)
 
-  # Detect user click for new num and roll again
+  # Detect user click for new num and roll again -->
   if jsonMsg["object_id"] == "a-die0"\
   and jsonMsg["type"] == "mousedown":
     d6Roll = gen_d6_num()
     update_prnum_text(str(d6Roll))
-    # TODO : log timestamp, user and roll here
+    # Log timestamp, user and roll -->
+    print(jsonMsg["timestamp"] + ": " + \
+          jsonMsg["data"]["source"] + " rolled a " + str(d6Roll))
 
 
 def gen_d6_num():
-  #print("[DEBUG] gen_d6_num: here!")
-  
   # Get new random number between 1 - 6
   return random.randint(1, 6)
 
 
 def update_prnum_text(newText):
-  #print("[DEBUG] update_prnum_text: here!")
-  
   # Update prnum-render with new random number
   prnum.update(text=newText)
 
