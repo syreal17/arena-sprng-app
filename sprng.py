@@ -14,16 +14,22 @@ def scene_callback(msg):
 
   # FIXME : msg might be dict already?
   #jsonMsg = json.loads(msg)
+  print("DEBUG: -1")
   jsonMsg = msg
 
+  print("DEBUG: 0")
   # Detect user click for new num and roll again -->
   if jsonMsg["object_id"] == "a-die1"\
   and jsonMsg["type"] == "mousedown":
+    print("DEBUG: 1")
     d6Roll = gen_d6_num()
+    print("DEBUG: 2")
     update_die1_text(str(d6Roll))
+    print("DEBUG: 3")
     # Log timestamp, user and roll -->
     print(jsonMsg["timestamp"] + ": " + \
           jsonMsg["data"]["source"] + " rolled a " + str(d6Roll))
+    print("DEBUG: 4")
 
 
 def gen_d6_num():
