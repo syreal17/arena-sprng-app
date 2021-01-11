@@ -8,12 +8,7 @@ from arena import *
 
 # DEFs -----------------------------------------------------------------------
 
-# TODO : verify new way to do scene callbacks
 def scene_callback(msg):
-  #print("scene_callback: -->\n", msg)
-
-  # FIXME : msg might be dict already?
-  #jsonMsg = json.loads(msg)
   print("DEBUG: -1")
   jsonMsg = msg
 
