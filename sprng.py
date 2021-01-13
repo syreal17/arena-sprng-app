@@ -66,7 +66,7 @@ def main():
 
 
     die1_text = Text( object_id="a-die1_text",
-                      color=(0, 0, 0),
+                      color=Color(0, 0, 0),
                       position=Position(0, 50, -125),
                       scale=Scale(100, 100, 100),
                       text="i",
