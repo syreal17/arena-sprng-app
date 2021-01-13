@@ -6,25 +6,30 @@ from arena import *
 
 
 
-# CALLBACKS -------------------------------------------------------------------
+# HANDLERS --------------------------------------------------------------------
 
-def scene_callback(msg):
-  #DEBUG:OFF#print("DEBUG: -1")
-  jsonMsg = msg
+def die_click_handler(evt):
+    global arena
+    global die1_text
 
-  #DEBUG:OFF#print("DEBUG: 0")
-  # Detect user click for new num and roll again -->
-  if jsonMsg["object_id"] == "a-die1"\
-  and jsonMsg["type"] == "mousedown":
-    #DEBUG:OFF#print("DEBUG: 1")
-    d6Roll = gen_d6_num()
-    #DEBUG:OFF#print("DEBUG: 2")
-    update_die1_text(str(d6Roll))
-    #DEBUG:OFF#print("DEBUG: 3")
+    print("in die click handler")
+    
+    if evt.type == "mousedown":
+        print("Rolling...")
+
+        new_roll_value = gen_d6_num()
+
+        print("... " + str(new_roll_value) + "!")
+
+        # this line doesn't seem to work --v
+        #die1_text.data.text = str( new_roll_value )
+        die1_text.update_attributes(text=str(new_roll_value))
+        arena.update_object(die1_text)
+
+    # PORT : Old way to log roll data --v 
     # Log timestamp, user and roll -->
-    print(jsonMsg["timestamp"] + ": " + \
-          jsonMsg["data"]["source"] + " rolled a " + str(d6Roll))
-    #DEBUG:OFF#print("DEBUG: 4")
+    #print(jsonMsg["timestamp"] + ": " + \
+    #      jsonMsg["data"]["source"] + " rolled a " + str(d6Roll))
 
 
 
@@ -35,9 +40,11 @@ def gen_d6_num():
   return random.randint(2, 6)
 
 
-def update_die1_text(newText):
-  # Update die1_text with new random number
-  die1_text.update(text=newText)
+
+# GLOBALS ---------------------------------------------------------------------
+
+arena = None
+die1_text = None
 
 
 
@@ -45,8 +52,7 @@ def update_die1_text(newText):
 
 arena = Arena( "arena.andrew.cmu.edu",
                "realm",
-               "sprng-changeme-0.1.0",
-               on_msg_callback=scene_callback )
+               "sprng-changeme-0.1.0" )
 
 @arena.run_once # make this function a task that runs once at startup
 def main():
@@ -55,7 +61,8 @@ def main():
                  position=Position(0, 50, -140),
                  scale=Scale(25, 25, 25),
                  clickable=True,
-                 persist=True )
+                 persist=True,
+                 evt_handler=die_click_handler )
     arena.add_object(die1)
 
 
@@ -65,6 +72,7 @@ def main():
     arena.add_object(dice_light)
 
 
+    global die1_text
     die1_text = Text( object_id="a-die1_text",
                       color=Color(0, 0, 0),
                       position=Position(0, 50, -125),
