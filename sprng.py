@@ -10,7 +10,8 @@ from arena import *
 
 arena = Arena( "arena.andrew.cmu.edu",
                "realm",
-               "sprng-changeme-2" )
+               "public",
+               "sprng-changeme-333" )
 
 dice_light = Light( object_id="a-dice_light",
                     position=Position(0, 50, -115),
@@ -41,6 +42,8 @@ def die_click_handler(evt):
         # this line doesn't seem to work --v
         #die1_text.data.text = str( new_roll_value )
         die1_text.update_attributes(text=str(new_roll_value))
+        # TODO : switch "update_object" to "add_object"
+        # NOTE : update_object not working w text currently
         arena.update_object(die1_text)
 
     # PORT : Old way to log roll data --v 
