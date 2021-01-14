@@ -1,7 +1,7 @@
 from arena import *
 
 # create library
-arena = Arena("arena.andrew.cmu.edu", "realm", "sprng-changeme-2")
+arena = Arena("arena.andrew.cmu.edu", "realm", "public", "sprng-changeme-13")
 
 @arena.run_once # make this function a task that runs once at startup
 def main():
