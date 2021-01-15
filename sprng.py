@@ -51,11 +51,6 @@ def die_click_handler(evt):
 
 
 
-# GLOBALS 2/2 -----------------------------------------------------------------
-# TODO : delete this section or move the die1 dec back here
-
-
-
 # OTHER DEFs ------------------------------------------------------------------
 
 def gen_d6_num():
@@ -68,7 +63,6 @@ def gen_d6_num():
 
 @arena.run_once # make this function a task that runs once at startup
 def main():
-    print("here main1")
     die1 = Cube( object_id="a-die1",
                  color=Color(255, 255, 255),
                  position=Position(0, 50, -140),
