@@ -1,12 +1,13 @@
 
 import json
 import random
+import time
 
 from arena import *
 
 
 
-# GLOBALS 1/2 -----------------------------------------------------------------
+# GLOBALS ---------------------------------------------------------------------
 
 arena = Arena( "arena.andrew.cmu.edu",
                "realm",
@@ -31,11 +32,11 @@ die1_text = Text( object_id="a-die1_text",
 def die_click_handler(evt):
 
     if evt.type == "mousedown":
-        print("Rolling...")
-
+        timestamp = time.ctime(time.clock_gettime(time.CLOCK_REALTIME))
         new_roll_value = gen_d6_num()
 
-        print("... " + str(new_roll_value) + "!")
+        print("AT: "+ timestamp +"--> @"+ evt.data.source +" rolled a "+ \
+               str(new_roll_value))
 
         die1_text.data.text = str( new_roll_value )
         arena.add_object(die1_text)
