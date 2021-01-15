@@ -30,8 +30,6 @@ die1_text = Text( object_id="a-die1_text",
 
 def die_click_handler(evt):
 
-    print("in die click handler")
-    
     if evt.type == "mousedown":
         print("Rolling...")
 
@@ -39,15 +37,8 @@ def die_click_handler(evt):
 
         print("... " + str(new_roll_value) + "!")
 
-        # this line doesn't seem to work --v
-        #die1_text.data.text = str( new_roll_value )
-        die1_text.update_attributes(text=str(new_roll_value))
+        die1_text.data.text = str( new_roll_value )
         arena.add_object(die1_text)
-
-    # PORT : Old way to log roll data --v 
-    # Log timestamp, user and roll -->
-    #print(jsonMsg["timestamp"] + ": " + \
-    #      jsonMsg["data"]["source"] + " rolled a " + str(d6Roll))
 
 
 
