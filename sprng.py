@@ -42,9 +42,7 @@ def die_click_handler(evt):
         # this line doesn't seem to work --v
         #die1_text.data.text = str( new_roll_value )
         die1_text.update_attributes(text=str(new_roll_value))
-        # TODO : switch "update_object" to "add_object"
-        # NOTE : update_object not working w text currently
-        arena.update_object(die1_text)
+        arena.add_object(die1_text)
 
     # PORT : Old way to log roll data --v 
     # Log timestamp, user and roll -->
