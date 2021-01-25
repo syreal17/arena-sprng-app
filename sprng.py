@@ -9,10 +9,9 @@ from arena import *
 
 # GLOBALS ---------------------------------------------------------------------
 
-arena = Arena( "arena.andrew.cmu.edu",
-               "realm",
-               "public",
-               "sprng-changeme-333" )
+arena = Arena( host="arena.andrew.cmu.edu",
+               realm="realm",
+               scene="sprng-changeme-333" )
 
 dice_light = Light( object_id="a-dice_light",
                     position=Position(0, 50, -115),
@@ -55,7 +54,7 @@ def gen_d6_num():
 
 @arena.run_once # make this function a task that runs once at startup
 def main():
-    die1 = Cube( object_id="a-die1",
+    die1 = Box( object_id="a-die1",
                  color=Color(255, 255, 255),
                  position=Position(0, 50, -140),
                  scale=Scale(25, 25, 25),
