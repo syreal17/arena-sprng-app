@@ -35,7 +35,7 @@ def die_click_handler(evt):
         new_roll_value = gen_d6_num()
 
         print("AT: "+ timestamp +"--> @"+ evt.data.source +" rolled a "+ \
-               str(new_roll_value))
+               str(new_roll_value), flush=True)
 
         die1_text.data.text = str( new_roll_value )
         arena.add_object(die1_text)
