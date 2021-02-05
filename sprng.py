@@ -9,9 +9,7 @@ from arena import *
 
 # GLOBALS ---------------------------------------------------------------------
 
-arena = Arena( host="arena.andrew.cmu.edu",
-               realm="realm",
-               scene="sprng-changeme-333" )
+arena = Arena()
 
 dice_light = Light( object_id="a-dice_light",
                     position=Position(0, 50, -115),
